@@ -9,7 +9,7 @@ function [X, Y] = contourCalculation( mean, covar )
     [V,D,W] = eig(covar);
     orientation = 0;
     if covar(1, 2) ~= 0
-        orientation = tan(W(2,1)/W(1,1))*360/(2*pi);
+        orientation = tan(W(2,2)/W(1,2))*360/(2*pi);
     end
 
     theta = 0 : 0.05 : 2*pi;

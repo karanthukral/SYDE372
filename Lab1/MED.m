@@ -4,11 +4,11 @@
 % calculated distance to each class mean for a point
 % returns the minimum distance and class for the minimum
 
-function [classNumber] = MED_Classifier(dataPoint, varargin)
+function [classNumber] = MED(point, classes)
     eucleadianDistances=[];
-    for i = 1:length(varargin)
-        currentClassMean=varargin{i};
-        distance=((dataPoint-currentClassMean) * (dataPoint-currentClassMean).')^0.5;
+    for i=1:length(classes)
+        currentClassMean = classes(i).mean;
+        distance=((point-currentClassMean) * (point-currentClassMean).')^0.5;
         eucleadianDistances=[eucleadianDistances distance]
     end
     [minimumDist, classNumber]=min(eucleadianDistances);

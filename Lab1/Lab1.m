@@ -28,6 +28,6 @@ E = gaussianTransform(mu_e, covar_e);
 [D_x, D_y] = contourCalculation(mu_d, covar_d);
 [E_x, E_y] = contourCalculation(mu_e, covar_e);
 
-scatter(E(:,1),E(:,2),'filled');
+scatter(A(:,1),A(:,2),'filled');
 hold on
-plot(E_x,E_y,'LineWidth',2);
+plot(A_x,A_y,'LineWidth',2);

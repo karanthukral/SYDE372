@@ -1,6 +1,6 @@
 %MAP_CLASSIFIER Summary of this function goes here
 %   Detailed explanation goes here
-function [ class ] = MAP_2Class_Classifier( point, classes)
+function [ class ] = MAP( point, classes)
     function dist = calculateDist(point, mean, covar)
         dist = ((point - mean) * inv(covar) * (point'-mean'));
     end

@@ -27,7 +27,7 @@ ClassC = struct('mean',mu_c, 'covar',covar_c, 'n',n_c)
 ClassD = struct('mean',mu_d, 'covar',covar_d, 'n',n_d)
 ClassE = struct('mean',mu_e, 'covar',covar_e, 'n',n_e)
 
-A = gaussianTransform(ClassA.mean, ClassA.covar);
+A = gaussianTransform(ClassA.mean, ClassA.covar)
 B = gaussianTransform(ClassB.mean, ClassB.covar);
 C = gaussianTransform(ClassC.mean, ClassC.covar);
 D = gaussianTransform(ClassD.mean, ClassD.covar);
@@ -38,6 +38,12 @@ E = gaussianTransform(ClassE.mean, ClassE.covar);
 [C_x, C_y] = contourCalculation(ClassC.mean, ClassC.covar);
 [D_x, D_y] = contourCalculation(ClassD.mean, ClassD.covar);
 [E_x, E_y] = contourCalculation(ClassE.mean, ClassE.covar);
+
+ClassA.gauss = A;
+ClassB.gauss = B;
+ClassC.gauss = C;
+ClassD.gauss = D;
+ClassE.gauss = E;
 
 % scatter(A(:,1),A(:,2),'filled');
 % hold on

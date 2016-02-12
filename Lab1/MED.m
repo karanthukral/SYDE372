@@ -9,7 +9,7 @@ function [classNumber] = MED(point, classes)
     for i=1:length(classes)
         currentClassMean = classes(i).mean;
         distance=((point-currentClassMean) * (point-currentClassMean).')^0.5;
-        eucleadianDistances=[eucleadianDistances distance]
+        eucleadianDistances=[eucleadianDistances distance];
     end
     [minimumDist, classNumber]=min(eucleadianDistances);
 end

@@ -50,6 +50,12 @@ ClassC.gauss = C;
 ClassD.gauss = D;
 ClassE.gauss = E;
 
+[A_x, A_y] = contourCalculation(ClassA.mean, ClassA.covar);
+[B_x, B_y] = contourCalculation(ClassB.mean, ClassB.covar);
+[C_x, C_y] = contourCalculation(ClassC.mean, ClassC.covar);
+[D_x, D_y] = contourCalculation(ClassD.mean, ClassD.covar);
+[E_x, E_y] = contourCalculation(ClassE.mean, ClassE.covar);
+
 % Decison boundary grids
  
 X = linspace(-5,25,100);
@@ -76,35 +82,12 @@ for j = 1:length(Y)
 end
  
 %plotting
-
-figure;
-scatter(A(:,1),A(:,2),'filled');
-hold on;
-scatter(B(:,1),B(:,2),'filled');
-hold on;
-plot (A_contour(:,1), A_contour(:,2), 'r-');
-hold on;
-plot (B_contour(:,1), B_contour(:,2), 'b-');
-
-figure;
-scatter(C(:,1),C(:,2),'filled');
-hold on;
-scatter(D(:,1),D(:,2),'filled');
-hold on;
-scatter(E(:,1),E(:,2),'filled');
-hold on;
-plot (C_contour(:,1), C_contour(:,2), 'r-');
-hold on;
-plot (D_contour(:,1), D_contour(:,2), 'b-');
-hold on;
-plot (E_contour(:,1), E_contour(:,2), 'g-');
-
-figure;
+     
 scatter(A(:,1),A(:,2),[],'r','.');
 hold on
 scatter(B(:,1),B(:,2),[],'b','.');
 hold on
-contour(X,Y,grid.micd,1,'-r');
+%contour(X,Y,grid.micd,1,'-r');
 hold on
 contour(X,Y,grid.map,1,'-b');
 hold on

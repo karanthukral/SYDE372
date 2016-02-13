@@ -1,6 +1,9 @@
-%MAP_CLASSIFIER Summary of this function goes here
-%   Detailed explanation goes here
-function [ class ] = MAP( point, classes)
+% MAP
+% dataPoint = Sample to be classified
+% classes = array/row matrix for all the classes (struct) to be considered
+% Runs a conditional to check if 2 class or 3 class classifer
+% Returns the index of the class to which the sample belongs
+function [ class ] = MAP( dataPoint, classes)
     function dist = calculateDist(point, mean, covar)
         dist = ((point - mean) * inv(covar) * (point'-mean'));
     end
@@ -9,7 +12,7 @@ function [ class ] = MAP( point, classes)
     if length(classes) == 2
         for i=1:length(classes)
             class = classes(i);
-            distances(i) = calculateDist(point, class.mean, class.covar);
+            distances(i) = calculateDist(dataPoint, class.mean, class.covar);
         end
 
         rhs = 2*log(classes(2).n/classes(1).n) + log(det(classes(1).covar)/det(classes(2).covar));
@@ -24,7 +27,7 @@ function [ class ] = MAP( point, classes)
         rhs = [];
         for i=1:length(classes)
             class = classes(i);
-            distances(i) = calculateDist(point, class.mean, class.covar);
+            distances(i) = calculateDist(dataPoint, class.mean, class.covar);
         end
         rhs(1) = 2*log(classes(2).n/classes(1).n) + log(det(classes(1).covar)/det(classes(2).covar));
         rhs(2) = 2*log(classes(2).n/classes(3).n) + log(det(classes(3).covar)/det(classes(2).covar));

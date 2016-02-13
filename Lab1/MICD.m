@@ -1,3 +1,7 @@
+% MICD
+% dataPoint = Sample to be classified
+% classes = array/row matrix for all the classes (struct) to be considered
+% Returns the index of the class to which the sample belongs
 function class = MICD(dataPoint, classes)
     distances = [];
     for i=1:length(classes)
